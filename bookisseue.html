@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Issue & Return - Admin</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>📚 Book Issue & Return (Admin)</h1>
+
+  <!-- Issue Book Form -->
+  <form id="issueForm">
+    <h3>Issue Book</h3>
+    <input type="text" id="issueUser" placeholder="Username" required><br>
+    <input type="text" id="bookTitle" placeholder="Book Title" required><br>
+    <input type="date" id="issueDate" required><br>
+    <input type="date" id="dueDate" required><br>
+    <button type="submit">✅ Issue</button>
+  </form>
+
+  <hr>
+
+  <!-- Return Book Form -->
+  <form id="returnForm">
+    <h3>Return Book</h3>
+    <input type="text" id="returnUser" placeholder="Username" required><br>
+    <input type="text" id="returnBook" placeholder="Book Title" required><br>
+    <input type="date" id="returnDate" required><br>
+    <button type="submit">♻️ Return</button>
+  </form>
+
+  <script src="js/issue_return.js"></script>
+</body>
+</html>

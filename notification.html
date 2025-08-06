@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>📢 Notifications & Reminders</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>📢 Notifications & Reminders</h1>
+
+  <!-- Admin Announcement Form -->
+  <div id="adminSection" style="display: none;">
+    <h2>Post Announcement (Admin Only)</h2>
+    <form id="announcementForm">
+      <textarea id="announcementText" rows="4" cols="50" placeholder="Enter announcement..."></textarea><br>
+      <button type="submit">📣 Post</button>
+    </form>
+  </div>
+
+  <!-- Announcements -->
+  <h2>📣 Announcements</h2>
+  <ul id="announcementsList"></ul>
+
+  <!-- Return Reminders -->
+  <h2>⏰ Your Book Reminders</h2>
+  <ul id="reminderList"></ul>
+
+  <script src="js/notifications.js"></script>
+</body>
+</html>

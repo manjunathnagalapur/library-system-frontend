@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>📊 Fine Management</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>📊 Fine Management (Admin)</h1>
+
+  <h2>Set Fine Rule</h2>
+  <form id="fineRuleForm">
+    <label>Fine per day (₹): </label>
+    <input type="number" id="finePerDay" required />
+    <button type="submit">💾 Save</button>
+  </form>
+
+  <h2>Overdue Users & Fine</h2>
+  <button onclick="loadFines()">🔄 Load Fines</button>
+  <ul id="fineList"></ul>
+
+  <script src="js/fine.js"></script>
+</body>
+</html>

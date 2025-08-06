@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search & Filter Books</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>🔍 Search & Filter Books</h1>
+
+  <!-- Search Form -->
+  <form id="searchForm">
+    <input type="text" id="keyword" placeholder="Search by title, author, genre, or ISBN">
+    <select id="filterAvailability">
+      <option value="">All</option>
+      <option value="Available">Available</option>
+      <option value="Unavailable">Unavailable</option>
+    </select>
+    <select id="filterCategory">
+      <option value="">All Categories</option>
+      <option value="Fiction">Fiction</option>
+      <option value="Science">Science</option>
+      <option value="History">History</option>
+    </select>
+    <button type="submit">🔎 Search</button>
+  </form>
+
+  <!-- Results Table -->
+  <table border="1" id="resultsTable">
+    <thead>
+      <tr>
+        <th>Title</th><th>Author</th><th>Genre</th><th>ISBN</th><th>Availability</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="js/search_books.js"></script>
+</body>
+</html>

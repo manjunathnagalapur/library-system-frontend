@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Book Management</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>📘 Book Management (Admin)</h1>
+
+  <!-- Add Book Form -->
+  <form id="addBookForm">
+    <h3>Add New Book</h3>
+    <input type="text" id="title" placeholder="Title" required><br>
+    <input type="text" id="author" placeholder="Author" required><br>
+    <input type="text" id="isbn" placeholder="ISBN" required><br>
+    <input type="text" id="category" placeholder="Category" required><br>
+    <input type="number" id="quantity" placeholder="Quantity" required><br>
+    <button type="submit">Add Book</button>
+  </form>
+
+  <hr>
+
+  <!-- Book Search -->
+  <input type="text" id="searchInput" placeholder="Search book by title...">
+  <ul id="bookList"></ul>
+
+  <script src="js/book_admin.js"></script>
+</body>
+</html>
