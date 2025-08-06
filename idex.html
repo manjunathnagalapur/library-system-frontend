@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Library System</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -24,7 +23,7 @@
 </head>
 <body>
 
-  <!-- 🔐 Login Section -->
+  <!-- Login Section -->
   <div id="login-section">
     <h2>Login to Library</h2>
     <form id="login-form">
@@ -34,7 +33,7 @@
     </form>
   </div>
 
-  <!-- 📚 Dashboard Section -->
+  <!-- Dashboard Section -->
   <div id="dashboard-section" class="hidden">
     <h2>Welcome to the Library</h2>
     <div class="nav-links">
@@ -46,36 +45,33 @@
   </div>
 
   <script>
-    // On page load: show dashboard if logged in
+    function showDashboard() {
+      document.getElementById("login-section").classList.add("hidden");
+      document.getElementById("dashboard-section").classList.remove("hidden");
+    }
+
+    // Check login status on page load
     window.onload = function () {
       if (localStorage.getItem("isLoggedIn") === "true") {
         showDashboard();
       }
     };
 
-    // Login form handler
-    document.getElementById("login-form").addEventListener("submit", function (event) {
-      event.preventDefault();
+    // Handle login form
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
 
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      // Sample login check — change as needed
       if (username === "admin" && password === "admin123") {
         localStorage.setItem("isLoggedIn", "true");
         showDashboard();
       } else {
-        alert("Invalid username or password");
+        alert("Invalid login");
       }
     });
 
-    // Show dashboard and hide login
-    function showDashboard() {
-      document.getElementById("login-section").classList.add("hidden");
-      document.getElementById("dashboard-section").classList.remove("hidden");
-    }
-
-    // Logout and return to login view
     function logout() {
       localStorage.removeItem("isLoggedIn");
       location.reload();
