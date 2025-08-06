@@ -3,12 +3,17 @@
 <head>
   <title>Dashboard</title>
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    // Block access if not logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "index.html"; // Back to login
+    }
+  </script>
 </head>
 <body>
   <h2>Welcome to the Library</h2>
-  <a href="ebook-list.html">E-Books</a> | 
-  <a href="#">Physical Books (Coming Soon)</a>
+  <a href="ebook-list.html">E-Books</a> |
+  <a href="physical-book-list.html">Physical Books</a>
 </body>
 </html>
-<a href="ebook-list.html">E-Books</a> | 
-<a href="physical-book-list.html">Physical Books</a>
