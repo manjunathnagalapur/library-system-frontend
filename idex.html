@@ -1,19 +1,35 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-
-  <script>
-    // Block access if not logged in
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-      window.location.href = "index.html"; // Back to login
-    }
-  </script>
+  <title>Login</title>
 </head>
 <body>
-  <h2>Welcome to the Library</h2>
-  <a href="ebook-list.html">E-Books</a> |
-  <a href="physical-book-list.html">Physical Books</a>
+  <h2>Library Login</h2>
+  <form id="login-form">
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent form from refreshing the page
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Replace this with real validation if needed
+      if (username === "admin" && password === "admin123") {
+        // ✅ Save login status
+        localStorage.setItem("isLoggedIn", "true");
+
+        // ✅ Redirect to dashboard
+        window.location.href = "index2.html";
+      } else {
+        alert("Invalid login!");
+      }
+    });
+  </script>
 </body>
 </html>
