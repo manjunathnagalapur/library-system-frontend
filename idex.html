@@ -1,35 +1,86 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Library System</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .hidden {
+      display: none;
+    }
+    .nav-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: blue;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h2>Library Login</h2>
-  <form id="login-form">
-    <input type="text" id="username" placeholder="Username" required><br>
-    <input type="password" id="password" placeholder="Password" required><br>
-    <button type="submit">Login</button>
-  </form>
+
+  <!-- 🔐 Login Section -->
+  <div id="login-section">
+    <h2>Login to Library</h2>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Username" required><br><br>
+      <input type="password" id="password" placeholder="Password" required><br><br>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- 📚 Dashboard Section -->
+  <div id="dashboard-section" class="hidden">
+    <h2>Welcome to the Library</h2>
+    <div class="nav-links">
+      <a href="ebook-list.html">E-Books</a> |
+      <a href="physical-book-list.html">Physical Books</a>
+    </div>
+    <br>
+    <button onclick="logout()">Logout</button>
+  </div>
 
   <script>
-    document.getElementById("login-form").addEventListener("submit", function(event) {
-      event.preventDefault(); // prevent form from refreshing the page
+    // On page load: show dashboard if logged in
+    window.onload = function () {
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        showDashboard();
+      }
+    };
+
+    // Login form handler
+    document.getElementById("login-form").addEventListener("submit", function (event) {
+      event.preventDefault();
 
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      // Replace this with real validation if needed
+      // Sample login check — change as needed
       if (username === "admin" && password === "admin123") {
-        // ✅ Save login status
         localStorage.setItem("isLoggedIn", "true");
-
-        // ✅ Redirect to dashboard
-        window.location.href = "index2.html";
+        showDashboard();
       } else {
-        alert("Invalid login!");
+        alert("Invalid username or password");
       }
     });
+
+    // Show dashboard and hide login
+    function showDashboard() {
+      document.getElementById("login-section").classList.add("hidden");
+      document.getElementById("dashboard-section").classList.remove("hidden");
+    }
+
+    // Logout and return to login view
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      location.reload();
+    }
   </script>
+
 </body>
 </html>
