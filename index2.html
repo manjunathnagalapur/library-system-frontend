@@ -1,2 +1,33 @@
-<a href="ebook-list.html">E-Books</a> | 
-<a href="physical-book-list.html">Physical Books</a>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    // Prevent access if not logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "index.html"; // redirect to login
+    }
+  </script>
+</head>
+<body>
+  <h2>Welcome to the Library</h2>
+
+  <nav>
+    <a href="ebook-list.html">E-Books</a> |
+    <a href="physical-book-list.html">Physical Books</a>
+  </nav>
+
+  <br>
+
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
