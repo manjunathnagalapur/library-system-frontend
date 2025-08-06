@@ -1,44 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Book Details</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h2 {
+      color: #007acc;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    button {
+      margin: 10px 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      border: none;
+      background-color: #007acc;
+      color: white;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    form input {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+    }
+    #paymentResult {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <h2>Book Details</h2>
-  <p id="bookInfo"></p>
+  <div class="container">
+    <h2>Book Details</h2>
+    <p id="bookInfo">Loading book information...</p>
+    <p>Availability: <strong>Available</strong></p>
 
-  <p>Availability: <strong>Available</strong></p>
+    <button onclick="document.getElementById('bookingForm').style.display='block'">Book This Book</button>
+    <button onclick="alert('Redirecting to reviews...')">Review</button>
 
-  <button onclick="document.getElementById('bookingForm').style.display='block'">Book This Book</button>
-  <button onclick="alert('Redirecting to reviews...')">Review</button>
-
-  <div id="bookingForm" style="display:none;">
-    <h3>Book Rental</h3>
-    <form onsubmit="calculatePayment(event)">
-      <label>Name:</label><input type="text" id="userName" required><br>
-      <label>Days:</label><input type="number" id="rentalDays" required><br>
-      <button type="submit">Confirm Booking</button>
-    </form>
-    <p id="paymentResult"></p>
+    <div id="bookingForm" style="display:none;">
+      <h3>Book Rental</h3>
+      <form onsubmit="calculatePayment(event)">
+        <label>Your Name:</label>
+        <input type="text" id="userName" required><br>
+        <label>Rental Days:</label>
+        <input type="number" id="rentalDays" min="1" required><br>
+        <button type="submit">Confirm Booking</button>
+      </form>
+      <p id="paymentResult"></p>
+    </div>
   </div>
 
   <script>
+    // Read bookId from URL
     const urlParams = new URLSearchParams(window.location.search);
     const bookId = urlParams.get('bookId') || '1';
 
-    document.getElementById("bookInfo").innerText = `You selected Book ${bookId} - Author ${bookId} (202${bookId % 10})`;
+    // Example dummy book details
+    const bookTitle = `Book ${bookId}`;
+    const author = `Author ${bookId}`;
+    const year = `202${bookId % 10}`;
 
+    // Set book info text
+    document.getElementById("bookInfo").innerText = `You selected "${bookTitle}" by ${author} (Published: ${year})`;
+
+    // Calculate payment
     function calculatePayment(event) {
       event.preventDefault();
-      const days = document.getElementById('rentalDays').value;
-      const costPerDay = 10; // ₹10/day
+      const days = parseInt(document.getElementById('rentalDays').value);
+      const costPerDay = 10;
       const total = days * costPerDay;
       document.getElementById('paymentResult').innerText = `Total Payment: ₹${total}`;
     }
   </script>
 </body>
 </html>
-<a href="ebook-details.html?bookId=${i}">...</a>
-
-
