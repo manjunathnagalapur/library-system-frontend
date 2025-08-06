@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Physical Books</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Available Physical Books</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      text-align: center;
+      color: #007700;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: auto;
+    }
+    li {
+      margin: 10px 0;
+      background-color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    a {
+      text-decoration: none;
+      color: #007700;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+
   <h2>Available Physical Books</h2>
   <ul id="bookList"></ul>
 
@@ -15,10 +48,11 @@
       const li = document.createElement("li");
       li.innerHTML = `
         <a href="physical-book-details.html?bookId=${i}">
-          Physical Book ${i} - Author ${i} (201${i % 10})
+          📗 Physical Book ${i} - Author ${i} (201${i % 10})
         </a>`;
       bookList.appendChild(li);
     }
   </script>
+
 </body>
 </html>
