@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>E-Books</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Available E-Books</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    h2 {
+      color: #007acc;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: auto;
+    }
+    li {
+      margin: 10px 0;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+
   <h2>Available E-Books</h2>
   <ul id="bookList"></ul>
 
@@ -15,10 +48,11 @@
       const li = document.createElement("li");
       li.innerHTML = `
         <a href="ebook-details.html?bookId=${i}">
-          Book Title ${i} - Author ${i} (202${i % 10})
+          📘 Book Title ${i} - Author ${i} (202${i % 10})
         </a>`;
       bookList.appendChild(li);
     }
   </script>
+
 </body>
 </html>
