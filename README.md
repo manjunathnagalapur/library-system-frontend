@@ -1,10 +1,25 @@
-# library-system-frontend
-LIBRARY SYSTEM FRONTEND
+# 📚 Library System Frontend
 
-git add README.md
-git commit -m "https://manjunathnagalapur.github.io/library-system-frontend/index.html"
-git push origin main
+This is a simple front-end for a library management system with login and dashboard functionality using HTML, CSS, and JavaScript.
 
-## 🚀 Launch Login Page
+---
 
-Click here to open the [Login Page](https://manjunathnagalapur.github.io/library-system-frontend/login.html).
+## 🌐 Live Site
+
+👉 [Open the Library System](https://manjunathnagalapur.github.io/library-system-frontend/index.html)
+
+---
+
+## ✅ Features
+
+- 🔐 Simple login authentication (static credentials)
+- 📖 Dashboard with:
+  - E-Books page
+  - Physical Books page
+- 🚪 Logout functionality
+- 🧼 Clean single-page design
+
+---
+
+## 🧪 Sample Credentials
+
