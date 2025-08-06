@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Book Details</h2>
+  <p id="bookInfo"></p>
+
+  <p>Availability: <strong>Available</strong></p>
+
+  <button onclick="document.getElementById('bookingForm').style.display='block'">Book This Book</button>
+  <button onclick="alert('Redirecting to reviews...')">Review</button>
+
+  <div id="bookingForm" style="display:none;">
+    <h3>Book Rental</h3>
+    <form onsubmit="calculatePayment(event)">
+      <label>Name:</label><input type="text" id="userName" required><br>
+      <label>Days:</label><input type="number" id="rentalDays" required><br>
+      <button type="submit">Confirm Booking</button>
+    </form>
+    <p id="paymentResult"></p>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookId = urlParams.get('bookId') || '1';
+
+    document.getElementById("bookInfo").innerText = `You selected Book ${bookId} - Author ${bookId} (202${bookId % 10})`;
+
+    function calculatePayment(event) {
+      event.preventDefault();
+      const days = document.getElementById('rentalDays').value;
+      const costPerDay = 10; // ₹10/day
+      const total = days * costPerDay;
+      document.getElementById('paymentResult').innerText = `Total Payment: ₹${total}`;
+    }
+  </script>
+</body>
+</html>
