@@ -2,23 +2,18 @@
 <html>
 <head>
   <title>Library System</title>
+  <link rel="stylesheet" href="style.css">
   <style>
+    /* fallback style in case style.css fails */
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 50px;
+      background-color: #f9f9f9;
     }
-    .hidden {
-      display: none;
-    }
-    input {
-      padding: 8px;
-      margin: 5px;
-    }
-    button {
-      padding: 10px 15px;
-      margin-top: 10px;
-      cursor: pointer;
+    input, button {
+      padding: 10px;
+      margin: 8px;
     }
     .nav-links a {
       margin: 0 10px;
@@ -27,6 +22,9 @@
     }
     .nav-links a:hover {
       text-decoration: underline;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -46,8 +44,8 @@
   <div id="dashboard-section" class="hidden">
     <h2>Welcome to the Library</h2>
     <div class="nav-links">
-     <a href="ebook-list.html">E-Books</a>
-<a href="physical-book-list.html">Physical Books</a>
+      <a href="ebook-list.html">E-Books</a> |
+      <a href="physical-book-list.html">Physical Books</a>
     </div>
     <br>
     <button onclick="logout()">Logout</button>
@@ -59,24 +57,25 @@
       document.getElementById("dashboard-section").classList.remove("hidden");
     }
 
-    // Check login status on page load
+    // Check login status on load
     window.onload = function () {
       if (localStorage.getItem("isLoggedIn") === "true") {
         showDashboard();
       }
     };
 
-    // Login form handler
+    // Login Handler
     document.getElementById("login-form").addEventListener("submit", function (e) {
       e.preventDefault();
-      const username = document.getElementById("username").value;
+      const username = document.getElementById("username").value.trim();
       const password = document.getElementById("password").value;
 
+      // Simple login
       if (username === "admin" && password === "admin123") {
         localStorage.setItem("isLoggedIn", "true");
         showDashboard();
       } else {
-        alert("Invalid credentials");
+        alert("Invalid username or password");
       }
     });
 
@@ -88,4 +87,3 @@
 
 </body>
 </html>
-
